@@ -1,6 +1,7 @@
 import React from "react";
 import "./Weather.css";
 import "./App.css";
+import "./index.css";
 
 export default function Weather() {
   let weatherData = {
@@ -13,6 +14,7 @@ export default function Weather() {
     humidity: 90,
     wind: 10,
   };
+
   return (
     <div className="Weather">
       <form>
@@ -24,7 +26,7 @@ export default function Weather() {
               className="form-control search-input"
             />
           </div>
-          <div className="col-3 p-0">
+          <div className="col-3 pe-3">
             <input
               type="submit"
               className="btn btn-primary w-100"
@@ -48,14 +50,12 @@ export default function Weather() {
                 <span className="speed"> {weatherData.wind}km/h</span>
               </li>
             </ul>
-            <div className="row">
-              <div className="col-6">
-                <div className="d-flex weather-temperature">
-                  <img src={weatherData.imgUrl} alt={weatherData.description} />
-                  <strong>{weatherData.temperature}</strong>
-                  <span className="units">°F</span>
-                </div>
-              </div>
+          </div>
+          <div className="col-6">
+            <div className="d-flex weather-temperature">
+              <img src={weatherData.imgUrl} alt={weatherData.description} />
+              <strong>{weatherData.temperature}</strong>
+              <span className="units">°F</span>
             </div>
           </div>
         </div>
