@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <VideoBackground />
+        <VideoBackground defaultCity="Portland" />
 
         <footer>
           This project was coded by Erica Chambers and is
