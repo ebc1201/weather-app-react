@@ -20,12 +20,7 @@ export default function WeatherInfo(props) {
             <li>
               Feels Like:{" "}
               <span className="conditions">
-                {
-                  Math.round(
-                    props.data.feel_like
-                  ) /*(props.data.feel_like * 9) / 5 + 32)*/
-                }
-                °
+                {Math.round(props.data.feels_like)}°
               </span>
             </li>
             <li>

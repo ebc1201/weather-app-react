@@ -20,7 +20,7 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       imgUrl: response.data.condition.icon_url,
-      feel_like: response.data.temperature.feel_like,
+      feels_like: response.data.temperature.feels_like,
     });
   }
 
