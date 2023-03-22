@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherUnit from "./WeatherUnit";
 
 export default function WeatherInfo(props) {
   return (
@@ -17,10 +18,14 @@ export default function WeatherInfo(props) {
               <div className="text-capitalize">{props.data.description}</div>
             </li>
             <li>
-              Feels Like:
-              <span className="text-capitalize conditions">
-                {" "}
-                {props.data.feel_like}°
+              Feels Like:{" "}
+              <span className="conditions">
+                {
+                  Math.round(
+                    props.data.feel_like
+                  ) /*(props.data.feel_like * 9) / 5 + 32)*/
+                }
+                °
               </span>
             </li>
             <li>
@@ -33,11 +38,11 @@ export default function WeatherInfo(props) {
             </li>
           </ul>
         </div>
+
         <div className="col-6">
-          <div className="d-flex weather-temperature">
+          <div className="d-flex WeatherUnit">
             <img src={props.data.imgUrl} alt={"description"} />
-            <strong>{Math.round(props.data.temperature)}</strong>
-            <span className="units">°F</span>
+            <WeatherUnit celsius={props.data.temperature} />
           </div>
         </div>
       </div>

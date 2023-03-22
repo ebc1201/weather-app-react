@@ -20,13 +20,13 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       imgUrl: response.data.condition.icon_url,
-      feel_like: response.data.temperature.feels_like,
+      feel_like: response.data.temperature.feel_like,
     });
   }
 
   function search() {
     const apiKey = "5ae36e7a40754bfb55o3c43890a696t8";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=imperial`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
