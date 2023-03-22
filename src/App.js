@@ -1,5 +1,4 @@
 import React from "react";
-import Weather from "./Weather";
 import VideoBackground from "./VideoBackground";
 
 export default function App() {
