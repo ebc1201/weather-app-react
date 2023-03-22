@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import "./App.css";
 import "./index.css";
@@ -11,12 +12,13 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
-      wind: response.data.wind.speed,
+      wind: response.data.wind.speed / 1.609344,
       city: response.data.city,
       humidity: response.data.temperature.humidity,
-      date: response.data.time,
-      desscription: response.data.condition.description,
+      date: new Date(response.data.time * 1000),
+      description: response.data.condition.description,
       imgUrl: response.data.condition.icon_url,
+      feel_like: response.data.temperature.feels_like,
     });
   }
 
@@ -47,18 +49,29 @@ export default function Weather(props) {
               <h1>{weatherData.city}</h1>
               <ul>
                 <li>
-                  <span>{weatherData.date}</span>,{" "}
-                  <span className="text-capitalize">
-                    {weatherData.desscription}
+                  <span>
+                    <FormattedDate date={weatherData.date} />
+                  </span>
+                </li>
+                <li>
+                  <div className="text-capitalize">
+                    {weatherData.description}
+                  </div>
+                </li>
+                <li>
+                  Feels Like:
+                  <span className="text-capitalize conditions">
+                    {" "}
+                    {weatherData.feel_like}°
                   </span>
                 </li>
                 <li>
                   Humidity:
-                  <span className="percent"> {weatherData.humidity}%</span>,
+                  <span className="conditions"> {weatherData.humidity}%</span>,
                   Wind:
-                  <span className="speed">
+                  <span className="conditions">
                     {" "}
-                    {Math.round(weatherData.wind)} km/h
+                    {Math.round(weatherData.wind)} mph
                   </span>
                 </li>
               </ul>
@@ -77,8 +90,7 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "5ae36e7a40754bfb55o3c43890a696t8";
-    let city = "Portland";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&unit=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

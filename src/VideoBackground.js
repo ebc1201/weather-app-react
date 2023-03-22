@@ -1,8 +1,8 @@
 import React from "react";
 import Weather from "./Weather";
+import videoSrc from "./smoke.mp4";
 
 export default function VideoBackground() {
-  const videoSrc = "smoke.mp4";
   const styles = {
     position: "fixed",
     top: 0,
@@ -30,7 +30,7 @@ export default function VideoBackground() {
           backgroundSize: "cover",
         }}
       ></div>
-      <Weather />
+      <Weather defaultCity="New York" />
     </div>
   );
 }
