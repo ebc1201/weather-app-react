@@ -12,6 +12,7 @@ export default function WeatherForcast(props) {
   }
 
   if (loaded) {
+    let forecastImage = forecast[0].condition.icon_url;
     console.log(forecast);
     return (
       <div className='weather-forecast'>
@@ -20,7 +21,7 @@ export default function WeatherForcast(props) {
             <div className='weather-forecast-date'>{forecast[0].time}</div>
             <div className='weather-forecast-date-icon'>
               <img
-                src='https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecast[0].condition.icon}.png'
+                src={forecastImage}
                 alt={forecast[0].condition.description}
                 width='36'
               />
