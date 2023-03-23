@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import WeatherInfo from "./WeatherInfo";
+import WeatherForcast from "./WeatherForecast";
 import "./Weather.css";
 import "./App.css";
 import "./index.css";
@@ -21,6 +21,7 @@ export default function Weather(props) {
       description: response.data.condition.description,
       imgUrl: response.data.condition.icon_url,
       feels_like: response.data.temperature.feels_like,
+      coordinates: response.data.coordinates,
     });
   }
 
@@ -63,7 +64,20 @@ export default function Weather(props) {
         </form>
         <WeatherInfo data={weatherData} />
 
-        <div className="weather-forecast"></div>
+        <div>
+          <WeatherForcast coordinates={weatherData.coordinates} />
+        </div>
+        <footer>
+          This project was coded by Erica Chambers and is
+          <a
+            href="https://github.com/ebc1201/weather-app-react"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            open-sourced on GitHub
+          </a>
+        </footer>
       </div>
     );
   } else {
