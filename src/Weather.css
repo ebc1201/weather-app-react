@@ -4,7 +4,7 @@
   background: rgba(255, 255, 255, 0.6);
   border: 2px solid #dadde1;
   border-radius: 16px;
-  box-shadow: 0 30px 50px rgba(151, 114, 243, 0.4);
+  box-shadow: 0 30px 50px rgba(38, 43, 44, 0.4);
   color: #878787;
   padding: 40px;
   display: block;
@@ -25,17 +25,18 @@
 }
 
 .Weather .btn {
-  background: #9772f3;
+  background: #579fc9;
   border: none;
   font-size: 16px;
   font-weight: 700;
   height: 50px;
   padding: 15px 0;
+  transition: all 200ms ease-in-out;
 }
 
 .Weather .btn:hover {
   cursor: pointer;
-  background: #954edb;
+  background: #88adc5;
 }
 
 .Weather .form-control {
@@ -69,15 +70,11 @@
 
 .Weather .WeatherUnit .units {
   color: #000000;
-  font-size: 18px;
+  font-size: 20px;
   position: relative;
   display: flex;
-  margin-top: 20px;
+  margin-top: 24px;
   margin-right: 0px;
-}
-
-.Weather .WeatherUnit .units a {
-  text-decoration: none;
 }
 
 .Weather .WeatherUnit img {
@@ -91,8 +88,8 @@
 .Weather .weather-forecast {
   margin: 40px 0;
   text-align: center;
-  border-bottom: 1px solid rgba(151, 114, 243, 0.2);
-  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(87, 159, 201, 0.2);
+  padding-bottom: 25px;
 }
 
 .Weather .weather-forecast .row {
@@ -102,11 +99,11 @@
 .Weather .weather-forecast img {
   width: 42px;
   height: 42px;
-  margin: 20px;
+  margin: 5px;
 }
 
 .Weather .weather-forecast-date {
-  color: rgba(39, 33, 66, 0.4);
+  color: rgba(39, 33, 66, 0.5);
   font-size: 16px;
   line-height: 20px;
   text-align: center;
@@ -114,7 +111,7 @@
 }
 
 .Weather .weather-forecast-temperature-max {
-  color: #954edb;
+  color: #579fc9;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -122,7 +119,7 @@
 }
 
 .Weather .weather-forecast-temperature-min {
-  color: #954edb;
+  color: #579fc9;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
