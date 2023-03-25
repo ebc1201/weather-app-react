@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function WeatherUnit(props) {
   let fahrenheit = (props.celsius * 9) / 5 + 32;
