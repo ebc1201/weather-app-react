@@ -97,14 +97,14 @@
 }
 
 .Weather .weather-forecast img {
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 60px;
   margin: 5px;
 }
 
 .Weather .weather-forecast-date {
   color: rgba(39, 33, 66, 0.5);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   text-align: center;
   opacity: 0.6;
