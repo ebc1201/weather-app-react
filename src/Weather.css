@@ -127,3 +127,9 @@
   opacity: 0.6;
   margin-left: 10px;
 }
+
+.sweet-loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 400px;
+}

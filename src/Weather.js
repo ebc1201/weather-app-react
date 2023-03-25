@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import WeatherInfo from './WeatherInfo';
 import WeatherForcast from './WeatherForecast';
+import BarLoader from 'react-spinners/BarLoader';
+
 import './Weather.css';
 import './App.css';
 import './index.css';
@@ -9,6 +11,14 @@ import './index.css';
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 10000);
+  }, []);
+
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -82,6 +92,16 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return 'Loading...';
+    return (
+      <div className='sweet-loading'>
+        <BarLoader
+          color={'#e7ad2b'}
+          loading={loading}
+          size={15}
+          aria-label='Loading Spinner'
+          data-testid='loader'
+        />
+      </div>
+    );
   }
 }
