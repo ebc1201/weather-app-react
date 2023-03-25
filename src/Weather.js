@@ -16,7 +16,7 @@ export default function Weather(props) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 10000);
+    }, 5000);
   }, []);
 
   function handleResponse(response) {
